@@ -1,0 +1,32 @@
+#######################################
+
+# Syntax Coloring Map For ESPUltralightTimers
+
+####################################### 
+
+# Class (KEYWORD1)
+
+#######################################
+
+
+
+ESPUltralightTimers KEYWORD1
+
+
+
+#######################################
+
+# Methods and Functions (KEYWORD2)
+
+#######################################	
+
+
+
+setTimer KEYWORD2
+setTimerMillis KEYWORD2
+initTimers KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+ 
