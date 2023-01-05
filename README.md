@@ -14,22 +14,37 @@ Future TODO: allow any number of timers on any hardware by using a stack which g
 Usage:
 
 ```
+#include <ESPUltralightTimers.h>
+...
+
 void func1() {
-  Serial.println("Hello from func1");
-  setTimer(30, &func1); //call func1 again in 30 seconds
+  digitalWrite(RELAY_1, HIGH);
+  setTimerMillis(1500, &func2); //call func2 in 1.5 seconds
 }
 
 void func2() {
-  Serial.println("Hi from func2");
+  digitalWrite(RELAY_1, LOW);
+  setTimer(20, &func1); //call func1 again in 20 seconds
+}
+
+bool showMessage = false;
+
+void func3() {
+  showMessage = true;
 }
 
 void setup() {
   ...
-  initTimers();
-  ...
-  
   setTimer(20, &func1);
-  setTimerMillis(5560, &func2);
+  setTimer(50, &func3);
   ...
 }
+
+void loop() {
+  if (showMessage) { //NB: Don't put serial in the interrupt callbacks - sometimes it works, sometimes it doesn't.
+    Serial.println("Hello World");
+    showMessage = false;
+  }
+}
 ```
+

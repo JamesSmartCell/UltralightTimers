@@ -1,6 +1,6 @@
 {
     "name": "ESPUltralightTimers", 
-    "version": "0.9", 
+    "version": "0.9.1", 
     "description": "Ultralight timing library for ESP32 family using hardware interrupts", 
     "repository": {
         "url": "https://github.com/JamesSmartCell/UltralightTimers.git", 

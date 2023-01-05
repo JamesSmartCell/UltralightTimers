@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <ESPUltralightTimers.h>
+//#include <WS2812FX.h>
 #include <U8g2lib.h>
 #include <string>
 
@@ -17,6 +18,8 @@
 uint8_t lineStuff = 0; 
 uint8_t diff = 1;
 std::string boxMsg;
+
+//WS2812FX ws2812fx = WS2812FX(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
 
 U8G2_SSD1306_72X40_ER_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE); 
 
@@ -70,61 +73,32 @@ long func4Projection = 0;
 
 void func1()
 {
-  Serial.print("Func 1: ");
-  Serial.print(millis());
-  Serial.print(" Diff: ");
-  Serial.print(millis() - func1Projection);
-  Serial.print(" : ");
-  Serial.print(func1Count++);
-  Serial.print(" : Projection: ");
-  func1Projection = millis() + 23*1000;
-  Serial.println(func1Projection);
   boxMsg = "Func1";
   lineStuff = 3;
+  diff = 1;
   setTimer(20, &func1);
 }
 
 void func2()
 {
-  Serial.print("Func 2: ");
-  Serial.print(millis());
-  Serial.print(" Diff: ");
-  Serial.print(millis() - func2Projection);
-  Serial.print(" : ");
-  Serial.print(func2Count++);
-  Serial.print(" : Projection: ");
-  func2Projection = millis() + 47*1000;
-  Serial.println(func2Projection);
   boxMsg = "Func2";
-  lineStuff = 3;
+  lineStuff = 59;
+  diff = -1;
   setTimer(47, &func2);
 }
 
 void func3()
 {
-  Serial.print("Func 3: ");
-  Serial.print(millis());
-  Serial.print(" Diff: ");
-  Serial.print(millis() - func3Projection);
-  Serial.print(" : ");
-  Serial.print(func3Count++);
-  Serial.print(" : Projection: ");
-  func3Projection = millis() + 6*1000;
-  Serial.println(func3Projection);
+  boxMsg = "Func3";
+  lineStuff = 3;
   setTimer(6, &func3);  
 }
 
 void func4()
 {
-  Serial.print("Func 4: ");
-  Serial.print(millis());
-  Serial.print(" Diff: ");
-  Serial.print(millis() - func4Projection);
-  Serial.print(" : ");
-  Serial.print(func4Count++);
-  Serial.print(" : Projection: ");
-  func4Projection = millis() + 63*1000;
-  Serial.println(func4Projection);
+  boxMsg = "Func4";
+  lineStuff = 59;
+  diff = -1;
   setTimer(63, &func4);  
 }
 
@@ -134,7 +108,6 @@ void setup() {
   u8g2.begin();
   Serial.println("Init Timers");
   lineStuff = 3;
-  initTimers();
 
   boxMsg = "Begin";
 
