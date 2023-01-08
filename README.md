@@ -1,4 +1,4 @@
-# ESPUltralightTimers  [![PlatformIO Registry](https://badges.registry.platformio.org/packages/jamessmartcell/library/ESPUltralightTimers.svg)](https://registry.platformio.org/libraries/jamessmartcell/ESPUltralightTimers)
+# ESPUltralightTimers [![PlatformIO Registry](https://badges.registry.platformio.org/packages/jamessmartcell/library/ESPUltralightTimers.svg)](https://registry.platformio.org/libraries/jamessmartcell/ESPUltralightTimers)
 
 ESP32 Ultralight Timers
 
